@@ -1,4 +1,4 @@
-package com.marx.socialweb.user;
+package com.marx.socialnetwork.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

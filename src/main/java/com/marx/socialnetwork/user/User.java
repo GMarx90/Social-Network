@@ -1,4 +1,4 @@
-package com.marx.socialweb.user;
+package com.marx.socialnetwork.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

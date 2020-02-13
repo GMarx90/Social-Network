@@ -1,4 +1,4 @@
-package com.marx.socialweb.post;
+package com.marx.socialnetwork.post;
 
 import com.marx.socialweb.user.User;
 import lombok.*;
