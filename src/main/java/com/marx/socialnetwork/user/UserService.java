@@ -33,7 +33,7 @@ public ResponseEntity getAllUsers() throws JsonProcessingException {
 }*/
 
     public HttpStatus addUser(@RequestBody User user) {
-        Optional<User> existingUser = userRepository.findByUserName(user.getName());
+        Optional<User> existingUser = userRepository.findByUserName(user.getName());  //nie widzi że jest @Data (czyli między innymi @Getter)
         if (existingUser.isPresent()) {
             return HttpStatus.UNPROCESSABLE_ENTITY;
         }
