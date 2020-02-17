@@ -1,6 +1,6 @@
 package com.marx.socialnetwork.post;
 
-import com.marx.socialweb.user.User;
+import com.marx.socialnetwork.user.User;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,6 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
+@ToString
 public class Post {
 
     @Id
@@ -22,4 +23,9 @@ public class Post {
 
     @NonNull
     private String body;
+//
+//    public Post(User user, String body) {
+//        this.user=user;
+//        this.body=body;
+//    }
 }
