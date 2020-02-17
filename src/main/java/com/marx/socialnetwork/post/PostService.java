@@ -15,11 +15,9 @@ import java.util.Optional;
 @RestController
 public class PostService {
 
-
-    @Autowired
+    //    @Autowired
     PostRepository postRepository;
-
-    @Autowired
+    //    @Autowired
     UserRepository userRepository;
 
     @PostMapping("/newpost")
@@ -27,7 +25,8 @@ public class PostService {
         Optional<User> exsitingUser = userRepository.findByUserName(name);
         if (exsitingUser.isEmpty()) {
             return HttpStatus.UNAUTHORIZED;
-        } else { Post post = new Post(exsitingUser.get(),postBody);
+        } else {
+            Post post = new Post(exsitingUser.get(), postBody);
             Post savedPost = postRepository.save(post);
             return HttpStatus.ACCEPTED;
         }

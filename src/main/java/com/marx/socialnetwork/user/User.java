@@ -8,9 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
-
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class User {
     @Id

@@ -1,10 +1,9 @@
 package com.marx.socialnetwork.user;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,16 +19,12 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    @GetMapping("/user")
     public List<User> showAllUsers() {
         return userRepository.findAll();
     }
 
-/*
-public ResponseEntity getAllUsers() throws JsonProcessingException {
-        List<User> users =userRepository.findAll();
-        return ResponseEntity.ok(objectMapper.writeValueAsString(users));
-}*/
-
+@PostMapping("/user")
     public HttpStatus addUser(@RequestBody User user) {
         Optional<User> existingUser = userRepository.findByUserName(user.getName());  //nie widzi że jest @Data (czyli między innymi @Getter)
         if (existingUser.isPresent()) {
@@ -39,12 +34,8 @@ public ResponseEntity getAllUsers() throws JsonProcessingException {
         return HttpStatus.ACCEPTED;
     }
 
-    /*
-    public HttpStatus deleteUser(@PathVariable ("name") String name){
-    */
 
-
-    @DeleteMapping("/")
+    @DeleteMapping("/delete")
     public HttpStatus deleteUser(@RequestBody User user) {
         Optional<User> existingUserForDelete = userRepository.findByUserName(user.getName());
         if (existingUserForDelete.isPresent()) {
